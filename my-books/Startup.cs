@@ -11,23 +11,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Npgsql;
+using my_books.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace my_books
 {
     public class Startup
     {
+        private string ConnectionString { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ConnectionString = Configuration["ConnectionStrings:MYBOOKSAPI"]; // Access User Secret
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
+
+            // Configure DBContext with SQL
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(ConnectionString));
+            services.AddScoped<IDataContext>(provider => provider.GetService<AppDbContext>());
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "my_books", Version = "v1" });
@@ -42,6 +52,7 @@ namespace my_books
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "my_books v1"));
+                
             }
 
             app.UseHttpsRedirection();
