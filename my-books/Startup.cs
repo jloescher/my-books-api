@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Npgsql;
 using my_books.Data;
 using Microsoft.EntityFrameworkCore;
+using my_books.Data.Services;
 
 namespace my_books
 {
@@ -37,7 +38,10 @@ namespace my_books
             // Configure DBContext with SQL
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(ConnectionString));
             services.AddScoped<IDataContext>(provider => provider.GetService<AppDbContext>());
-
+            
+            // Configure Services
+            services.AddTransient<BooksService>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "my_books", Version = "v1" });
@@ -65,6 +69,8 @@ namespace my_books
             {
                 endpoints.MapControllers();
             });
+            
+            AppDbInitializer.Seed(app);
         }
     }
 }
