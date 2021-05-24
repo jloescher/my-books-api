@@ -1,4 +1,7 @@
-﻿### Windows template
+﻿bin/
+obj/
+
+### Windows template
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
