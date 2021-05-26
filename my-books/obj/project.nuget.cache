@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ODJNmoyaZ1Bzpf1jp1Tl2DEGx9EJ4UYFxrcWFI8UgaN6eAiGolVxY+pynK4/kQrpNw1DRNfBgrL5X5k1qWmNfw==",
+  "dgSpecHash": "COx/e2bOHfyNotWa1V82Y/j3Qz8k0O3RI3RCDy5rH8yCVFvx/WL9yjaC7Mc/+A4eEEos1U/KE+ic7bz9nuGBvw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\dotnetcore\\my-books\\my-books\\my-books.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JonathanLoescher\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\JonathanLoescher\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\JonathanLoescher\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\JonathanLoescher\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.6\\microsoft.entityframeworkcore.5.0.6.nupkg.sha512",
     "C:\\Users\\JonathanLoescher\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.6\\microsoft.entityframeworkcore.abstractions.5.0.6.nupkg.sha512",
